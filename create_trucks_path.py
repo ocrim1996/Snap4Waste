@@ -3,7 +3,7 @@ import geopy.distance
 from datetime import datetime
 from build_map import build_map
 
-input_filename = 'rest_mes_split_by_date/rest-2021-05-12.csv'
+input_filename = 'rest_mes_split_by_date/rest-2021-12-30.csv'
 output_filename = 'trucks_paths.csv'
 speed_ms = 2.7777  # 10km/h in m/s
 #speed_ms = 1.3888  # 5km/h in m/s
