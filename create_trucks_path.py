@@ -64,14 +64,14 @@ with open(input_filename, 'r') as myfile:
             index_trucks = index_trucks + 1
             paths.append([measure])
 
-    headers = ['id', 'lat', 'long', 'truck_num', 'date']
+    headers = ['id', 'lat', 'long', 'truck_num', 'date', 'weight']
     with open(output_filename, 'w', encoding='UTF8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
 
         for index, path in enumerate(paths):
             for stop in path:
-                row = [stop.id, stop.lat, stop.long, "truck"+str(index), stop.date]
+                row = [stop.id, stop.lat, stop.long, "truck"+str(index), stop.date, stop.weight]
                 writer.writerow(row)
 
     print("Number of paths: "+str(len(paths)))
