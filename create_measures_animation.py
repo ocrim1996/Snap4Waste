@@ -1,7 +1,6 @@
 import folium
 from folium import plugins
 import csv
-import json
 
 m = folium.Map(location=[52.370579, 4.902242], tiles="CartoDB Positron", zoom_start=12)
 

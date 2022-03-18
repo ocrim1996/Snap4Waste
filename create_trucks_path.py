@@ -3,11 +3,10 @@ import geopy.distance
 from datetime import datetime
 from build_map import build_map
 
-
 input_filename = 'rest_mes_split_by_date/rest-2021-05-12.csv'
 output_filename = 'trucks_paths.csv'
-#speed_ms = 2.7777  # 10km/h in m/s
-speed_ms = 1.3888  # 5km/h in m/s
+speed_ms = 2.7777  # 10km/h in m/s
+#speed_ms = 1.3888  # 5km/h in m/s
 
 
 class Measure:
@@ -33,11 +32,12 @@ def check_if_same_truck(measure1, measure2):
     date1 = datetime.strptime(measure1.date, "%Y-%m-%dT%H:%M:%S.%fZ")
     date2 = datetime.strptime(measure2.date, "%Y-%m-%dT%H:%M:%S.%fZ")
     diff = (date1 - date2).seconds
-    # print("secondi: "+fid)
 
     max_distance_allowed = diff * speed_ms
-    # print("confronto: "+str(dst)+ "m con "+str(max_distance_allowed)+"m")
-    if dst <= max_distance_allowed:
+    # check if distance between bins is less than allowed distance and time diff less than 45 min
+    if dst <= max_distance_allowed and diff <= 2700 and dst <= 1000:
+        return True
+    elif 2700 < diff < 4500 and dst <= 300:
         return True
     else:
         return False
@@ -71,8 +71,8 @@ with open(input_filename, 'r') as myfile:
 
         for index, path in enumerate(paths):
             for stop in path:
-                print(str(stop.id) + "," + str(stop.lat) + "," + str(stop.long)+ ",truck"+str(index))
                 row = [stop.id, stop.lat, stop.long, "truck"+str(index), stop.date]
                 writer.writerow(row)
 
+    print("Number of paths: "+str(len(paths)))
     build_map(output_filename)
