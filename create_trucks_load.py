@@ -21,6 +21,7 @@ with open("trucks_load.csv", 'r') as myfile:
 min_weights = min(trucks_path_weights)
 max_weights = max(trucks_path_weights)
 avg_weights = round(mean(trucks_path_weights), 2)
+sum_daily_weights = sum(trucks_path_weights)
 
 with open('trucks_stats.txt', 'w') as f:
     f.write("Raccolta giorno: " +str(text))
@@ -30,5 +31,8 @@ with open('trucks_stats.txt', 'w') as f:
     f.write("· Peso massimo camion a fine giro -> " + str(max_weights) + " Kg")
     f.write('\n')
     f.write("· Peso medio camion a fine giro -> " + str(avg_weights) + " Kg")
+    f.write('\n')
+    f.write("· Peso totale giornaliero -> " + str(sum_daily_weights) + " Kg")
+
 
 
