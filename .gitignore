@@ -4,3 +4,5 @@
 /env
 /.DS_Store
 /trucks_paths.csv
+/trucks_stats.txt
+/trucks_load.csv

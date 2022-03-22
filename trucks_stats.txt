@@ -1,5 +1,11 @@
 Raccolta giorno: 2021-12-30
+<<<<<<< Updated upstream
 · Peso minimo camion a fine giro -> 100.0 Kg
 · Peso massimo camion a fine giro -> 30020.0 Kg
 · Peso medio camion a fine giro -> 6140.47 Kg
 · Peso totale giornaliero -> 325445.0 Kg
+=======
+· Peso minimo camion a fine giro -> 205.0 Kg
+· Peso massimo camion a fine giro -> 11995.0 Kg
+· Peso medio camion a fine giro -> 8795.81 Kg
+>>>>>>> Stashed changes
