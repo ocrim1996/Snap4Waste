@@ -18,3 +18,17 @@ plt.xlabel("Weight (kg)")
 plt.ylabel("Frequency")
 plt.show()
 
+trucks_num = pd.read_csv("trucks_load_yearly.csv")
+trucks_num = trucks_num.groupby(['date']).size().reset_index(name='tot_trucks')
+trucks_num.to_csv("trucks_num.csv", encoding='utf-8', index=False)
+
+step = [i for i in range(0, 50, 5)]
+col2 = trucks_num.tot_trucks.to_list()
+plt.hist(col2, step)
+
+plt.title("Distribution trucks num")
+plt.xlabel("Number of trucks by day")
+plt.ylabel("Frequency")
+plt.show()
+
+
