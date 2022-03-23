@@ -14,9 +14,6 @@ filenames = sorted(filenames)
 # filenames = filenames[:3]
 
 output_filename = 'trucks_paths_yearly.csv'
-speed_ms = 2.7777  # 10km/h in m/s
-#speed_ms = 1.3888  # 5km/h in m/s
-
 
 first_time = True
 for input_filename in filenames:

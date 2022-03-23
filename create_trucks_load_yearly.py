@@ -11,7 +11,7 @@ trucks_load.to_csv("trucks_load_yearly.csv", encoding='utf-8', index=False)
 
 step = [i for i in range(0, 12000, 100)]
 col = trucks_load.tot_weight.to_list()
-plt.hist(col, step)
+plt.hist(col, step, edgecolor='black', linewidth=1.2)
 
 plt.title("Distribution trucks load")
 plt.xlabel("Weight (kg)")
@@ -22,9 +22,10 @@ trucks_num = pd.read_csv("trucks_load_yearly.csv")
 trucks_num = trucks_num.groupby(['date']).size().reset_index(name='tot_trucks')
 trucks_num.to_csv("trucks_num.csv", encoding='utf-8', index=False)
 
-step = [i for i in range(0, 50, 5)]
+step = [i for i in range(0, 60, 5)]
 col2 = trucks_num.tot_trucks.to_list()
-plt.hist(col2, step)
+plt.hist(col2, step, edgecolor='black', linewidth=1.2)
+plt.xticks(range(0, 60, 5))
 
 plt.title("Distribution trucks num")
 plt.xlabel("Number of trucks by day")

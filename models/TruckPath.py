@@ -1,7 +1,8 @@
 import geopy.distance
 from datetime import datetime
 
-speed_ms = 4  # 10km/h in m/s
+speed_ms = 4.1666 # 15km/h in m/s
+#speed_ms = 2.7777  # 10km/h in m/s
 #speed_ms = 1.3888  # 5km/h in m/s
 
 class TruckPath:
@@ -29,7 +30,7 @@ class TruckPath:
         max_distance_allowed = diff * speed_ms
         # check if distance between bins is less than allowed distance
         if dst < 1000 and diff < 3600 and (self.tot_weight + measure.weight) < 12000:
-            True
+            return True
         if dst <= max_distance_allowed and (self.tot_weight + measure.weight) < 12000 and dst < 2000:
             return True
         else:
