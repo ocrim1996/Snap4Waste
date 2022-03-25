@@ -2,18 +2,18 @@ import os
 import csv
 from models import TruckPath as tp
 from models import Measure as ms
+from settings import settings
 
 # Iterate over directory.
-directory = 'rest_mes_split_by_date'
+directory = settings.csv_mes_disit_folder
 filenames = []
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
     if os.path.isfile(f):
         filenames.append(f)
 filenames = sorted(filenames)
-# filenames = filenames[:3]
 
-output_filename = 'trucks_paths_yearly.csv'
+output_filename = os.path.join(settings.csv_folder, 'trucks_paths_yearly.csv')
 
 first_time = True
 for input_filename in filenames:

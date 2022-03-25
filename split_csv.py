@@ -1,7 +1,9 @@
+import os
 from datetime import datetime
 import csv
+from settings import settings
 
-input_file = 'rest_measures_with_pos_by_date.csv'
+input_file = os.path.join(settings.csv_folder, 'rest_measures_with_pos_by_date.csv')
 
 with open(input_file, 'r') as myfile:
     reader = csv.reader(myfile)
@@ -13,7 +15,7 @@ with open(input_file, 'r') as myfile:
     count = 0
     for row in reader:
         date_to_check = str(datetime.strptime(row[1], "%Y-%m-%dT%H:%M:%S.%fZ").date())
-        output_filename = 'rest_mes_split_by_date/rest-' + date_to_check + '.csv'
+        output_filename = os.path.join(settings.csv_mes_disit_folder, 'rest-' + date_to_check + '.csv')
 
         with open(output_filename, 'a', encoding='UTF8', newline='') as f:
             writer = csv.writer(f)

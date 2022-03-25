@@ -1,7 +1,9 @@
+import os
 import folium
 from folium import plugins
 import csv
 from branca.element import Template, MacroElement
+from settings import settings
 
 template = """
 {% macro html(this, kwargs) %}
@@ -98,7 +100,7 @@ macro._template = Template(template)
 
 m = folium.Map(location=[52.370579, 4.902242], tiles="CartoDB Positron", zoom_start=12)
 
-input_filename = 'rest_mes_split_by_date/rest-2021-12-30.csv'
+input_filename = os.path.join(settings.csv_ams_api_folder, 'ams-rest-2021-12-30.csv')
 
 points = []
 
@@ -155,4 +157,4 @@ plugins.TimestampedGeoJson(
 
 m.get_root().add_child(macro)
 
-m.save('index.html')
+m.save(os.path.join(settings.outputs_folder, 'animation_map.html'))

@@ -1,10 +1,12 @@
+import os
 import csv
 from models import TruckPath as tp
 from models import Measure as ms
-from build_map import build_map
+from create_trucks_path_map import build_map
+from settings import settings
 
-input_filename = 'rest_mes_split_by_date/rest-2020-09-08.csv'
-output_filename = 'trucks_paths.csv'
+input_filename = os.path.join(settings.csv_ams_api_folder, 'ams-rest-2021-12-28.csv')
+output_filename = os.path.join(settings.csv_folder, 'trucks_paths.csv')
 
 
 with open(input_filename, 'r') as myfile:
@@ -33,6 +35,7 @@ with open(input_filename, 'r') as myfile:
         writer = csv.writer(f)
         writer.writerow(headers)
 
+        text = "<b>Trucks</b> &nbsp; <b>Tot_Weights</b><br>"
         for index, path in enumerate(paths):
             sum = 0
             for stop in path.measures:
@@ -40,6 +43,7 @@ with open(input_filename, 'r') as myfile:
                 row = [stop.id, stop.lat, stop.long, "truck"+str(index), stop.date, stop.weight, sum]
                 writer.writerow(row)
             print("weight path: " + str(path.index) + " = " + str(sum))
+            text = text + "truck" + str(path.index) + " -> " + str(sum) + " Kg<br>"
 
     print("Number of paths: "+str(len(paths)))
-    build_map(output_filename)
+    build_map(output_filename, text)

@@ -5,6 +5,7 @@ speed_ms = 4.1666 # 15km/h in m/s
 #speed_ms = 2.7777  # 10km/h in m/s
 #speed_ms = 1.3888  # 5km/h in m/s
 
+
 class TruckPath:
     def __init__(self, index):
         self.index = index
