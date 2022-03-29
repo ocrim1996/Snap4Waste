@@ -30,9 +30,9 @@ class TruckPath:
 
         max_distance_allowed = diff * speed_ms
         # check if distance between bins is less than allowed distance
-        if dst < 1000 and diff < 3600 and (self.tot_weight + measure.weight) < 12000:
+        if dst < 1000 and diff < 3600 and (self.tot_weight + measure.weight) < 13000:
             return True
-        if dst <= max_distance_allowed and (self.tot_weight + measure.weight) < 12000 and dst < 2000:
+        if dst <= max_distance_allowed and (self.tot_weight + measure.weight) < 13000 and dst < 2000:
             return True
         else:
             return False

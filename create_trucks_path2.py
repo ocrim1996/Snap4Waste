@@ -5,7 +5,7 @@ from models import Measure as ms
 from create_trucks_path_map import build_map
 from settings import settings
 
-input_filename = os.path.join(settings.csv_ams_api_folder, 'ams-rest-2021-12-28.csv')
+input_filename = os.path.join(settings.csv_ams_api_folder, 'ams-rest-2021-03-23.csv')
 output_filename = os.path.join(settings.csv_folder, 'trucks_paths.csv')
 
 

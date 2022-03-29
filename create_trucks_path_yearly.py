@@ -6,6 +6,7 @@ from settings import settings
 
 # Iterate over directory.
 directory = settings.csv_mes_disit_folder
+#directory = settings.csv_ams_api_folder
 filenames = []
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
@@ -13,7 +14,7 @@ for filename in os.listdir(directory):
         filenames.append(f)
 filenames = sorted(filenames)
 
-output_filename = os.path.join(settings.csv_folder, 'trucks_paths_yearly.csv')
+output_filename = os.path.join(settings.csv_folder, 'trucks_paths_yearly_12000.csv')
 
 first_time = True
 for input_filename in filenames:
