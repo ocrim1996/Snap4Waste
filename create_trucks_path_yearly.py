@@ -14,7 +14,7 @@ for filename in os.listdir(directory):
         filenames.append(f)
 filenames = sorted(filenames)
 
-output_filename = os.path.join(settings.csv_folder, 'ams_trucks_paths_yearly_16000_2.csv')
+output_filename = os.path.join(settings.csv_folder, 'ams_trucks_paths_yearly_16000_3000.csv')
 
 first_time = True
 for input_filename in filenames:

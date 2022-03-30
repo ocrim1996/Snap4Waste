@@ -5,7 +5,7 @@ import collections
 from statistics import mean, median
 from settings import settings
 
-file1 = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_num_16000.csv"))
+file1 = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_num_16000_4000.csv"))
 
 trucks_num = file1.tot_trucks.to_list()
 
@@ -16,7 +16,7 @@ print("Numero medio di camion:", trucks_mean)
 print("Numero mediano di camion:", trucks_median)
 print("*"*50)
 
-file2 = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_load_yearly_16000.csv"))
+file2 = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_load_yearly_16000_4000.csv"))
 
 load = file2.tot_weight.to_list()
 
@@ -27,7 +27,7 @@ print("Peso medio fine giro:", load_mean)
 print("Peso mediano fine giro:", load_median)
 print("*"*50)
 
-trucks_load = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_paths_yearly_16000.csv"))
+trucks_load = pd.read_csv(os.path.join(settings.csv_folder, "ams_trucks_paths_yearly_16000_4000.csv"))
 
 trucks_load['tot_weight'] = trucks_load.groupby(['date', 'truck_num'])['weight'].transform('sum')
 trucks_load = trucks_load.drop_duplicates(subset=['date', 'truck_num'], keep='last')
