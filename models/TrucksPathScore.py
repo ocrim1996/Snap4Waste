@@ -32,9 +32,9 @@ class TruckPath:
 
         score = 2 * dst + diff
 
-        if dst < 1000 and diff < 3600 and (self.tot_weight + measure.weight) < 13000:
+        if dst < 1000 and diff < 3600 and (self.tot_weight + measure.weight) < 16000:
             return True, score
-        if dst <= max_distance_allowed and (self.tot_weight + measure.weight) < 13000 and dst < 2000:
+        if dst <= max_distance_allowed and (self.tot_weight + measure.weight) < 16000 and dst < 2000:
             return True, score
         else:
             return False, score

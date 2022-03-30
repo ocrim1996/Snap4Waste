@@ -1,12 +1,12 @@
 import os
 import csv
-from models import TruckPath as tp
+from models import TrucksPathScore as tps
 from models import Measure as ms
 from settings import settings
 
 # Iterate over directory.
-directory = settings.csv_mes_disit_folder
-#directory = settings.csv_ams_api_folder
+#directory = settings.csv_mes_disit_folder
+directory = settings.csv_ams_api_folder
 filenames = []
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
@@ -14,7 +14,7 @@ for filename in os.listdir(directory):
         filenames.append(f)
 filenames = sorted(filenames)
 
-output_filename = os.path.join(settings.csv_folder, 'trucks_paths_yearly_12000.csv')
+output_filename = os.path.join(settings.csv_folder, 'ams_trucks_paths_yearly_16000_2.csv')
 
 first_time = True
 for input_filename in filenames:
@@ -24,20 +24,26 @@ for input_filename in filenames:
         line = next(reader, None)
         first_mes = ms.Measure(line[0], line[1], line[2], line[3], line[4])
         index_trucks = 0
-        paths = [tp.TruckPath(index_trucks)]
+        paths = [tps.TruckPath(index_trucks)]
         paths[index_trucks].add_measure(first_mes)
         for row in reader:
+            #print(row[1])
             measure = ms.Measure(row[0], row[1], row[2], row[3], row[4])
             new_truck = True
-            for path in paths:
-                last_path_measure = path.measures[-1]
-                if path.check_measure_in_path(measure):
-                    path.add_measure(measure)
-                    new_truck = False
-                    break
-            if new_truck:
+            best_index = None
+            best_score = None
+            for index, path in enumerate(paths):
+                result = path.check_measure_in_path(measure)
+                if result[0]:
+                    if best_score is None or result[1] < best_score:
+                        new_truck = False
+                        best_index = index
+                        best_score = result[1]
+            if new_truck is False:
+                paths[best_index].add_measure(measure)
+            else:
                 index_trucks = index_trucks + 1
-                paths.append(tp.TruckPath(index_trucks))
+                paths.append(tps.TruckPath(index_trucks))
                 paths[index_trucks].add_measure(measure)
 
         headers = ['date', 'truck_num', 'weight']
