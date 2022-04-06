@@ -14,11 +14,12 @@ If you want to know more about our project, read our [Report](documents/Snap4Was
 ## Some Outputs
 Some output images created by the algorithm:
 
-<img  alt="Container map by size" src="https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/B62AEBAD-48DF-447B-8B17-E2E622AEE0EE/CDB9EFA5-6EBD-4781-9AAB-20A09914E475_2/4x8qYj4w7LFcgZLq5O3BoRxLouCZyEbm8RPCvQQz2Roz/Schermata%202022-04-01%20alle%2018.18.54.png">
+
+![Schermata 2022-04-06 alle 11.56.33.png](https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/1CAD1F81-07C1-4577-8F9C-25642D36A6CE/BC4FE76B-6E07-4099-8810-A2637C471BC3_2/VDn1LNtwHOcL8qU8oNsa7N6qz69fGvQ3xYoBoUPsdH8z/Schermata%202022-04-06%20alle%2011.56.33.png)
 > Map of underground containers divided by capacity.
 
-<img  alt="Measures trend" src="https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/1CAD1F81-07C1-4577-8F9C-25642D36A6CE/BC4FE76B-6E07-4099-8810-A2637C471BC3_2/VDn1LNtwHOcL8qU8oNsa7N6qz69fGvQ3xYoBoUPsdH8z/Schermata%202022-04-06%20alle%2011.56.33.png">
+![Schermata 2022-04-06 alle 12.11.13.png](https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/1CAD1F81-07C1-4577-8F9C-25642D36A6CE/9CF2FE3B-0073-4E2B-9938-684EA5D18A7E_2/KiydqS8fT8OZ26StyPfKaRpFMxopC9owwsFjt1DPKuYz/Schermata%202022-04-06%20alle%2012.11.13.png)
 > Measures trend on 30 December 2021.
 
-<img  alt="Garbage trucks paths" src="https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/B62AEBAD-48DF-447B-8B17-E2E622AEE0EE/1A1A0B0C-C966-42A8-8112-9D06BAD1164E_2/ctE3xXHsMurJDep2BLKBTGEkJiAKrLstXOopgCX94dIz/Schermata%202022-04-01%20alle%2019.51.23.png">
+![Schermata 2022-04-06 alle 12.11.35.png](https://res.craft.do/user/full/6c4b770a-4518-25db-252b-c26d13c0b199/doc/1CAD1F81-07C1-4577-8F9C-25642D36A6CE/5F07D8EE-EE3C-45EA-BBA4-37BEDB7306E5_2/xw8xnjoImWPky9y20xvKB8vGPXvTY3h9X5iUXPRJNy0z/Schermata%202022-04-06%20alle%2012.11.35.png)
 > Garbage truck paths obtained on May 27, 2021.
