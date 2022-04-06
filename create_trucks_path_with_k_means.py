@@ -1,10 +1,7 @@
 import os
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
-import plotly.express as px
-import csv
+from create_trucks_path_map import build_map
 from settings import settings
 
 
@@ -44,48 +41,9 @@ sums = maximum_weights['sum_weight'].values
 for i in range(len(trucks)):
     text = text + str(trucks[i]) + " -> " + str(sums[i]) + " Kg<br>"
 
-
+df = df.rename(columns={'dateObserved': 'date'})
 df.to_csv(os.path.join(settings.csv_folder, "trucks_paths_kmeans.csv"), encoding='utf-8', index=False)
 
 csv_file = os.path.join(settings.csv_folder, "trucks_paths_kmeans.csv")
-container_pos = pd.read_csv(csv_file)
 
-
-legend_dict = dict(
-        x=0,
-        y=1,
-        title_font_family="Times New Roman",
-        font=dict(
-            family="Courier",
-            size=12,
-            color="black"
-        ),
-        bgcolor="#f0f3ef",
-        bordercolor="Black",
-        borderwidth=2
-    )
-
-fig = px.line_mapbox(container_pos, lat="lat", lon="long", hover_name="sum_weight", text="dateObserved", color="truck_num", zoom=3)
-
-fig.update_layout(mapbox_style="carto-positron", mapbox_zoom=11, mapbox_center_lat=52.370579,
-                      mapbox_center_lon=4.902242, legend=legend_dict, margin={"r":0,"t":0,"l":0,"b":0})
-
-fig.add_annotation(
-    text=text,
-    xref="paper",
-    yref="paper",
-    align="left",
-    x=0.99,
-    y=0.98,
-    showarrow=False,
-    font=dict(
-        family="Courier",
-        size=10,
-        color="black"
-    ),
-    bgcolor="#f0f3ef",
-    bordercolor="Black",
-    borderwidth=2
-)
-
-fig.show()
+build_map(csv_file, text)
